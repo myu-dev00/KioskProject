@@ -30,15 +30,22 @@ public class Kiosk {
     //입력받은 카테고리는 selectCategory 메서드에서 확인 후 카테고리에 맞는 메뉴 출력
     public void start(boolean start) { //// 입출력
         setMenu();
+        int intCategory;
         while (start) {
-            String category = "";
+            String category = null;
             int idx = 0;
-            while (category.isEmpty()) {
+            while (category == null) {
                 for (Menu menu : menus) {
                     System.out.printf("%d. %s\n", ++idx, menu.getCategory());
                 }
                 System.out.printf("0. %-14s  |  종료\n", "종료");
                 category = sc.nextLine();
+            }
+            try {
+                intCategory = Integer.parseInt(category);
+            } catch (NumberFormatException e){
+                System.out.println("잘못입력하셨습니다. 메뉴에 맞는 번호를 입력 부탁드립니다.");
+                continue;
             }
             start = selectCategory(Integer.parseInt(category));
         }
@@ -61,16 +68,23 @@ public class Kiosk {
 
     private void startItem(Menu menu) {
         Boolean startItem = true;
+        int intmenu;
         while(startItem){
-            String item = "";
+            String item = null;
             int idx = 0;
-            while (item.isEmpty()) {
+            while (item == null) {
                 for (MenuItem menuItem : menu.getMenuItems()) {
                     System.out.printf("%d. %-15s  |  %-4s  |  %s\n", ++idx, menuItem.getName(), menuItem.getPrice(),
                             menuItem.getDescription());
                 }
                 System.out.println("0. 뒤로가기");
                 item = sc.nextLine();
+            }
+            try {
+                intmenu = Integer.parseInt(item);
+            } catch (NumberFormatException e){
+                System.out.println("잘못입력하셨습니다. 메뉴에 맞는 번호를 입력 부탁드립니다.");
+                continue;
             }
             startItem = selectItem(Integer.parseInt(item),menu);
         }
@@ -79,7 +93,7 @@ public class Kiosk {
     private boolean selectItem(int item, Menu menu){
         if(0<item && item <= menu.getMenuItems().size()){
             System.out.println("선택한 메뉴: " + menu.getMenuItems().get(item-1).getName() + " "
-                    + menu.getMenuItems().get(item-1).getPrice() + " " + menu.getMenuItems().get(item-1).getDescription());
+                    + menu.getMenuItems().get(item-1).getPrice() + " " + menu.getMenuItems().get(item-1).getDescription()+"\n");
             return true;
         }
         else if(item == 0)
