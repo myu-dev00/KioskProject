@@ -1,46 +1,47 @@
-package v1;
+package v1_1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
-        boolean flag = true;
-        while (flag) {
-        System.out.println("[ SHAKESHACK MENU ]\n" +
-                "1.    |  | \n" +
-                "2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거\n" +
-                "3. Cheeseburger  | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거\n" +
-                "4. Hamburger     | W 5.4 | c\n" +
-                "0. 종료      | 종료");
+        Scanner sc = new Scanner(System.in);
+        boolean start = true;
 
-            String Str = sc.nextLine();
+        while (start) {
+            String item = null;
 
-            if(Str.isEmpty()) {
-                System.out.println("빈칸을 입력하지 말란 말이다");
-                continue;
+            while (item == null) {
+                System.out.println("[ SHAKESHACK MENU ]");
+                System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거\n" +
+                        "2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거\n" +
+                        "3. Cheeseburger  | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거\n" +
+                        "4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거\n" +
+                        "0. 종료      | 종료");
+                item = sc.nextLine();
             }
 
-            switch (Str) {
-                case "1":
-                    System.out.println("쉑쉑 쉑버걸티비");
+//숫자 외 다른 것 입력시 NumberFormatException 발생
+
+            switch (Integer.parseInt(item)) {
+                case 1:
+                    System.out.println("ShackBurger를 고르셨습니다.");
                     break;
-                case "2":
-                    System.out.println("쉑쉑 스모크버걸티비");
+                case 2:
+                    System.out.println("SmokeShack을 고르셨습니다.");
                     break;
-                case "3":
-                    System.out.println("쉑쉑 치즈버걸티비");
+                case 3:
+                    System.out.println("Cheeseburger를 고르셨습니다.");
                     break;
-                case "4":
-                    System.out.println("쉑쉑 치즈버걸티비");
+                case 4:
+                    System.out.println("Hamburger를 고르셨습니다.");
                     break;
-                case "0":
-                    System.out.println("종료한다? 빠빠");
-                    flag = false;
+                case 0:
+                    System.out.println("프로그램이 종료됩니다.");
+                    start = false;
                     break;
                 default:
-                    System.out.println("0~4으로 입력하라고 짜식아");
+                    System.out.println("잘못입력하셨습니다. 메뉴에 맞는 번호를 입력 부탁드립니다.");
             }
         }
     }
