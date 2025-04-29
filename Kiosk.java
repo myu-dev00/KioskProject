@@ -29,17 +29,25 @@ public class Kiosk {
 
     public void start(boolean start) { //입출력
         items();
+        int itemNum;
         while (start) {
-            String item = "";
+            String item = null;
             int idx = 0;
-            while (item.isEmpty()) { // 여쭤 볼것- null과 ""중에 어느게 더좋을까요?
+            while (item == null) { // 여쭤 볼것- null과 ""중에 어느게 더좋을까요?
                 for (MenuItem menuItem : menuItems) {
                     System.out.printf("%d. %-15s  |  %-4s  |  %s\n", ++idx, menuItem.getName(), menuItem.getPrice(), menuItem.getExplain());
                 }
                 System.out.printf("0. %-14s  |  종료\n", "종료");
                 item = sc.nextLine();
             }
-            int itemNum = Integer.parseInt(item);
+                       //try-catch문으로 예외처리 완료
+
+            try {
+            itemNum = Integer.parseInt(item);
+            } catch (NumberFormatException e){
+                System.out.println("잘못입력하셨습니다. 메뉴에 맞는 번호를 입력 부탁드립니다.");
+                continue;
+            }
             start = selectMenu(itemNum);
         }
     }
