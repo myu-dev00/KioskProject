@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean start = true;
-
+        int intItem = -1;
         while (start) {
             String item = null;
 
@@ -20,10 +20,17 @@ public class Main {
                         "0. 종료      | 종료");
                 item = sc.nextLine();
             }
+            //숫자 외 다른 것 입력시 NumberFormatException 발생
+            //try-catch문으로 예외처리 완료
+            try {
+                intItem = Integer.parseInt(item);
+            } catch (NumberFormatException e){
+                System.out.println("잘못입력하셨습니다. 메뉴에 맞는 번호를 입력 부탁드립니다.");
+                continue;
+            }
 
-//숫자 외 다른 것 입력시 NumberFormatException 발생
 
-            switch (Integer.parseInt(item)) {
+            switch (intItem) {
                 case 1:
                     System.out.println("ShackBurger를 고르셨습니다.");
                     break;
