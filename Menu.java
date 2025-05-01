@@ -31,17 +31,17 @@ public class Menu {
 
     }
 
-    public void drinks(){
-        menuItems.add(new MenuItem("drink1","W 0.0","description"));
-        menuItems.add(new MenuItem("drink2","W 0.0","description"));
-        menuItems.add(new MenuItem("drink3","W 0.0","description"));
-        menuItems.add(new MenuItem("drink4","W 0.0","description"));
+    public void drinks() {
+        menuItems.add(new MenuItem("drink1", "W 0.0", "description"));
+        menuItems.add(new MenuItem("drink2", "W 0.0", "description"));
+        menuItems.add(new MenuItem("drink3", "W 0.0", "description"));
+        menuItems.add(new MenuItem("drink4", "W 0.0", "description"));
     }
 
-    public void desserts(){
-        menuItems.add(new MenuItem("dessert1","W 0.0",""));
-        menuItems.add(new MenuItem("dessert2","W 0.0",""));
-        menuItems.add(new MenuItem("dessert3","W 0.0",""));
-        menuItems.add(new MenuItem("dessert4","W 0.0",""));
+    public void desserts() {
+        menuItems.add(new MenuItem("dessert1", "W 0.0", ""));
+        menuItems.add(new MenuItem("dessert2", "W 0.0", ""));
+        menuItems.add(new MenuItem("dessert3", "W 0.0", ""));
+        menuItems.add(new MenuItem("dessert4", "W 0.0", ""));
     }
 }
