@@ -3,10 +3,10 @@ package v4_2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu {
+public class Menu { //메뉴아이템을 관리할 메뉴 클래스(큰 카테고리 별로 묶인다)
     //
-    private final String category;
-    private final List<MenuItem> menuItems = new ArrayList<>();
+    private final String category;//메뉴를 묶을 카테고리
+    private final List<MenuItem> menuItems = new ArrayList<>();//카테고리별 메뉴가 들어가도록 만들 메뉴아이템 리스트
 
 
     public Menu(String category) {
@@ -20,6 +20,8 @@ public class Menu {
     public String getCategory() {
         return category;
     }
+
+    //메뉴별 메서드를 만듦. Kiosk의 setMenu메서드를 통하여 각 카테고리 별로 menuItems리스트가 들어감.
 
     public void burgers() {
         menuItems.add(new MenuItem("ShackBurger", "W 6.9", "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
