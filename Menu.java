@@ -2,13 +2,12 @@ package v4_2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Menu {
     //
     private final String category;
     private final List<MenuItem> menuItems = new ArrayList<>();
-//    private MenuItem menuItem;
+
 
     public Menu(String category) {
         this.category = category;
@@ -17,7 +16,6 @@ public class Menu {
     public List<MenuItem> getMenuItems() {
         return menuItems;
     }
-
 
     public String getCategory() {
         return category;
@@ -32,16 +30,16 @@ public class Menu {
     }
 
     public void drinks() {
-        menuItems.add(new MenuItem("drink1", "W 0.0", "description"));
-        menuItems.add(new MenuItem("drink2", "W 0.0", "description"));
-        menuItems.add(new MenuItem("drink3", "W 0.0", "description"));
-        menuItems.add(new MenuItem("drink4", "W 0.0", "description"));
+        menuItems.add(new MenuItem("drink1", "W 3.0", "description drink1"));
+        menuItems.add(new MenuItem("drink2", "W 3.0", "description drink2"));
+        menuItems.add(new MenuItem("drink3", "W 3.0", "description drink3"));
+        menuItems.add(new MenuItem("drink4", "W 3.0", "description drink4"));
     }
 
     public void desserts() {
-        menuItems.add(new MenuItem("dessert1", "W 0.0", ""));
-        menuItems.add(new MenuItem("dessert2", "W 0.0", ""));
-        menuItems.add(new MenuItem("dessert3", "W 0.0", ""));
-        menuItems.add(new MenuItem("dessert4", "W 0.0", ""));
+        menuItems.add(new MenuItem("dessert1", "W 4.0", "description dessert1"));
+        menuItems.add(new MenuItem("dessert2", "W 5.0", "description dessert2"));
+        menuItems.add(new MenuItem("dessert3", "W 6.0", "description dessert3"));
+        menuItems.add(new MenuItem("dessert4", "W 7.0", "description dessert4"));
     }
 }

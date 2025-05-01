@@ -9,11 +9,15 @@ public class Kiosk {
     //
     private Scanner sc = new Scanner(System.in);
     private final List<Menu> menus = new ArrayList<>();
-    boolean start = true;
+    boolean start;
     //category 만들기
     private final Menu burgers = new Menu("BURGERS");
     private final Menu drinks = new Menu("DRINKS");
     private final Menu desserts = new Menu("DESSERTS");
+
+    public Kiosk(boolean start) {
+        this.start = start;
+    }
 
     //Menu 설정
     private void setMenu() {
